@@ -16,9 +16,9 @@ const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY || SU
 
 const NAVS = {
   patientMarketing: [
-    { label: "Overview", href: "/patient" },
+    { label: "Overview", href: "/patient/overview" },
     { label: "Sign in", href: "/patient/login" },
-    { label: "Pricing", href: "/patient#pricing" }
+    { label: "Pricing", href: "/patient/pricing" }
   ],
   patientApp: [
     { label: "Dashboard", href: "/patient/dashboard" },
@@ -28,9 +28,9 @@ const NAVS = {
     { label: "Profile", href: "/patient/profile" }
   ],
   doctorMarketing: [
-    { label: "Overview", href: "/doctor" },
+    { label: "Overview", href: "/doctor/overview" },
     { label: "Sign in", href: "/doctor/login" },
-    { label: "Pricing", href: "/doctor#pricing" }
+    { label: "Pricing", href: "/doctor/pricing" }
   ],
   doctorApp: [
     { label: "Dashboard", href: "/doctor/dashboard" },
@@ -90,15 +90,21 @@ function setSession(req, payload) {
   req.session.auth = { user: payload.userId, role: payload.role, verified: payload.verified };
 }
 
-app.get("/", (req, res) => res.redirect("/patient"));
+app.get("/", (req, res) => res.redirect("/patient/overview"));
 
 // ---- Patient marketing ----
-app.get("/patient", (req, res) => {
+app.get("/patient", (req, res) => res.redirect("/patient/overview"));
+
+app.get("/patient/overview", (req, res) => {
   render(res, "pages/patient/landing", { nav: NAVS.patientMarketing, title: "PatientDZ · Patients", pricing: "100 DA (free for first 50 users)" });
 });
 
+app.get("/patient/pricing", (req, res) => {
+  render(res, "pages/patient/pricing", { nav: NAVS.patientMarketing, title: "Pricing · PatientDZ" });
+});
+
 app.get("/patient/login", (req, res) => {
-  render(res, "pages/login", { nav: NAVS.patientMarketing, title: "Patient Login", action: "/patient/login", role: "patient" });
+  render(res, "pages/login", { nav: NAVS.patientMarketing, title: "Patient Login", action: "/patient/login", role: "patient", error: req.query.error });
 });
 
 app.post("/patient/login", async (req, res) => {
@@ -109,7 +115,7 @@ app.post("/patient/login", async (req, res) => {
     return res.redirect("/patient/dashboard");
   } catch (err) {
     console.error("Patient login error", err.message);
-    return res.redirect("/patient/login");
+    return res.redirect("/patient/login?error=" + encodeURIComponent(err.message));
   }
 });
 
@@ -121,7 +127,7 @@ app.post("/patient/signup", async (req, res) => {
     return res.redirect("/patient/dashboard");
   } catch (err) {
     console.error("Patient signup error", err.message);
-    return res.redirect("/patient");
+    return res.redirect("/patient/overview?error=" + encodeURIComponent(err.message));
   }
 });
 
@@ -155,12 +161,18 @@ app.get("/patient/profile", requireAuth("patient"), (req, res) => {
 });
 
 // ---- Doctor marketing ----
-app.get("/doctor", (req, res) => {
+app.get("/doctor", (req, res) => res.redirect("/doctor/overview"));
+
+app.get("/doctor/overview", (req, res) => {
   render(res, "pages/doctor/landing", { nav: NAVS.doctorMarketing, title: "PatientDZ · Doctors", pricing: "5000 DA (free for first 50)" });
 });
 
+app.get("/doctor/pricing", (req, res) => {
+  render(res, "pages/doctor/pricing", { nav: NAVS.doctorMarketing, title: "Pricing · Doctors" });
+});
+
 app.get("/doctor/login", (req, res) => {
-  render(res, "pages/login", { nav: NAVS.doctorMarketing, title: "Doctor Login", action: "/doctor/login", role: "doctor" });
+  render(res, "pages/login", { nav: NAVS.doctorMarketing, title: "Doctor Login", action: "/doctor/login", role: "doctor", error: req.query.error });
 });
 
 app.post("/doctor/login", async (req, res) => {
@@ -172,7 +184,7 @@ app.post("/doctor/login", async (req, res) => {
     return res.redirect("/doctor/dashboard");
   } catch (err) {
     console.error("Doctor login error", err.message);
-    return res.redirect("/doctor/login");
+    return res.redirect("/doctor/login?error=" + encodeURIComponent(err.message));
   }
 });
 
@@ -184,7 +196,7 @@ app.post("/doctor/signup", async (req, res) => {
     return res.redirect("/doctor/pending");
   } catch (err) {
     console.error("Doctor signup error", err.message);
-    return res.redirect("/doctor");
+    return res.redirect("/doctor/overview?error=" + encodeURIComponent(err.message));
   }
 });
 

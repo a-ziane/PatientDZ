@@ -38,6 +38,9 @@
       </label>
       <button class="primary" type="submit">Create account</button>
     </form>
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p style="color:#dc2626; margin-top:10px;"><%= error %></p>
+    <% } %>
   </div>
 </section>
 

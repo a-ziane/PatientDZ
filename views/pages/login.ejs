@@ -14,6 +14,9 @@
       </label>
       <button class="primary" type="submit">Sign in</button>
     </form>
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p style="color:#dc2626; margin-top:10px;"><%= error %></p>
+    <% } %>
   </div>
 </section>
 <%- include('../partials/layout-end') %>
