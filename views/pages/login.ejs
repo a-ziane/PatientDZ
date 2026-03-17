@@ -1,0 +1,19 @@
+<%- include('../partials/layout-start', { title, nav }) %>
+<section class="section">
+  <div class="section-title">
+    <h2>Login</h2>
+    <p class="muted">Use your phone number and password.</p>
+  </div>
+  <div class="card" style="max-width:520px;">
+    <form class="form" method="POST" action="/auth/login">
+      <label>Phone number
+        <input name="phone" type="text" placeholder="+213 5xx xxx xxx" required />
+      </label>
+      <label>Password
+        <input name="password" type="password" placeholder="••••••••" required />
+      </label>
+      <button class="primary" type="submit">Login</button>
+    </form>
+  </div>
+</section>
+<%- include('../partials/layout-end') %>

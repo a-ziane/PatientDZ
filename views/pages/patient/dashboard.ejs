@@ -1,0 +1,21 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="section">
+  <div class="section-title">
+    <h2>Patient Dashboard</h2>
+    <p class="muted">Upcoming appointments and quick links.</p>
+  </div>
+  <div class="grid two">
+    <div class="card">
+      <h3>Upcoming</h3>
+      <p class="muted">No appointments yet.</p>
+    </div>
+    <div class="card">
+      <h3>Quick actions</h3>
+      <div class="grid">
+        <a class="ghost" href="/patient/records">View records</a>
+        <a class="ghost" href="/patient">Search doctors</a>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

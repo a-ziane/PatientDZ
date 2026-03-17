@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="brand">PatientDZ</div>
+  <nav class="nav">
+    <% nav.forEach((item) => { %>
+      <a href="<%= item.href %>"><%= item.label %></a>
+    <% }); %>
+  </nav>
+  <div class="cta">
+    <a class="ghost" href="/login">Login</a>
+    <a class="primary" href="/signup">Signup</a>
+  </div>
+</header>

@@ -1,0 +1,23 @@
+<%- include('../partials/layout-start', { title, nav }) %>
+<section class="hero">
+  <div>
+    <p class="pill">PatientDZ</p>
+    <h1 style="margin:12px 0 10px;">Simplifying healthcare access in Algeria.</h1>
+    <p class="muted" style="max-width:640px;">
+      Patients can find doctors, book appointments, and manage records. Doctors manage schedules and records. Admins oversee verification.
+    </p>
+    <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a class="primary" href="/patient">Explore patient</a>
+      <a class="ghost" href="/doctor">Explore doctor</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Quick links</h3>
+    <div class="grid">
+      <a class="ghost" href="/patient">Patient dashboard</a>
+      <a class="ghost" href="/doctor">Doctor dashboard</a>
+      <a class="ghost" href="/admin">Admin panel</a>
+    </div>
+  </div>
+</section>
+<%- include('../partials/layout-end') %>
