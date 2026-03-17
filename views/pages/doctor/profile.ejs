@@ -1,0 +1,17 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="section">
+  <div class="section-title">
+    <h2>Doctor profile</h2>
+    <p class="muted">Update your info.</p>
+  </div>
+  <div class="card" style="max-width:520px;">
+    <form class="form">
+      <label>Name<input type="text" value="Dr Ahmed" /></label>
+      <label>Specialty<input type="text" value="Cardiology" /></label>
+      <label>Clinic<input type="text" value="Clinique El Amel" /></label>
+      <label>Bio<textarea rows="3">Short bio</textarea></label>
+      <button class="primary" type="submit">Save</button>
+    </form>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

@@ -1,0 +1,30 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="section">
+  <div class="section-title">
+    <h2>Search doctors</h2>
+    <p class="muted">Filter by name, location, specialty; see rating and bio.</p>
+  </div>
+  <div class="card">
+    <form class="form" style="grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); align-items:end;">
+      <label>Name<input type="text" placeholder="Doctor name" /></label>
+      <label>Location<input type="text" placeholder="City or clinic" /></label>
+      <label>Specialty<input type="text" placeholder="Cardiology" /></label>
+      <button class="primary" type="submit">Search</button>
+    </form>
+  </div>
+  <div class="grid two">
+    <div class="card">
+      <h3>Dr Fatima Bensalem</h3>
+      <p class="muted">Dermatologist · Algiers · ⭐ 4.7</p>
+      <p>Bio: Focus on chronic dermatology and cosmetic care.</p>
+      <a class="ghost" href="/patient/search/doctor">Check calendar</a>
+    </div>
+    <div class="card">
+      <h3>Dr Ahmed Benali</h3>
+      <p class="muted">Cardiologist · Oran · ⭐ 4.8</p>
+      <p>Bio: Preventive cardiology and cardiac rehab.</p>
+      <a class="ghost" href="/patient/search/doctor">Check calendar</a>
+    </div>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

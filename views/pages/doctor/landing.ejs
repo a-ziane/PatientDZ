@@ -1,0 +1,50 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="hero">
+  <div>
+    <p class="pill">Doctor Portal</p>
+    <h1 style="margin:12px 0 10px;">Manage appointments and patient records.</h1>
+    <p class="muted" style="max-width:640px;">Accept requests, control availability, and update records. Free for first 50 doctors (then <%= pricing %>).</p>
+    <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a class="primary" href="#signup">Create account</a>
+      <a class="ghost" href="/doctor/login">Sign in</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Key tools</h3>
+    <ul style="display:grid; gap:6px; color:var(--muted);">
+      <li>Approve or reschedule appointment requests</li>
+      <li>Edit availability on the calendar</li>
+      <li>Customize patient intake questions</li>
+      <li>Request access to patient records and add notes</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="signup">
+  <div class="section-title">
+    <h2>Create your doctor account</h2>
+    <p class="muted">Pending admin approval after signup.</p>
+  </div>
+  <div class="card" style="max-width:520px;">
+    <form class="form" method="POST" action="/doctor/signup">
+      <label>Full name
+        <input name="name" type="text" placeholder="Full name" required />
+      </label>
+      <label>Phone number
+        <input name="phone" type="text" placeholder="+213 5xx xxx xxx" required />
+      </label>
+      <label>Password
+        <input name="password" type="password" placeholder="Create a password" required />
+      </label>
+      <button class="primary" type="submit">Create account</button>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="card">
+    <h3>Pricing</h3>
+    <p class="muted">5000 DA / doctor — Free for first 50.</p>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

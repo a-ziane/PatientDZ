@@ -1,0 +1,17 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="section">
+  <div class="section-title">
+    <h2>Calendar</h2>
+    <p class="muted">Edit availability; booked slots show patient names.</p>
+  </div>
+  <div class="card">
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(140px,1fr));">
+      <button class="ghost">Mon 09:00</button>
+      <button class="ghost">Mon 14:30</button>
+      <button class="ghost">Tue 10:00</button>
+      <button class="ghost">Wed 16:00 (Booked)</button>
+    </div>
+    <a class="primary" style="margin-top:10px; display:inline-block;" href="/doctor/calendar/questions">Manage intake questions</a>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

@@ -1,0 +1,25 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="section">
+  <div class="section-title">
+    <h2>Appointment details</h2>
+    <p class="muted">Confirm slot and share context for the doctor.</p>
+  </div>
+  <div class="card" style="max-width:640px;">
+    <form class="form">
+      <label>Selected time
+        <input type="text" value="Mon 14:30" readonly />
+      </label>
+      <label>Reason for visit
+        <input type="text" placeholder="Describe your concern" />
+      </label>
+      <label>Questions from doctor
+        <textarea rows="4" placeholder="Answers to doctor’s custom questions"></textarea>
+      </label>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="ghost" type="button" onclick="history.back()">Back</button>
+        <button class="primary" type="submit">Submit request</button>
+      </div>
+    </form>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

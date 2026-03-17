@@ -1,0 +1,50 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="hero">
+  <div>
+    <p class="pill">Patient Portal</p>
+    <h1 style="margin:12px 0 10px;">Manage your care in one place.</h1>
+    <p class="muted" style="max-width:640px;">Find doctors, book appointments, message providers, and keep all records organized. Free for the first 50 users (then <%= pricing %>).</p>
+    <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a class="primary" href="#signup">Create account</a>
+      <a class="ghost" href="/patient/login">Sign in</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>What you can do</h3>
+    <ul style="display:grid; gap:6px; color:var(--muted);">
+      <li>Search doctors by specialty, location, or name</li>
+      <li>Book and manage appointments</li>
+      <li>View medications, labs, and imaging in Records</li>
+      <li>Update your profile and share visit context</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="signup">
+  <div class="section-title">
+    <h2>Create your patient account</h2>
+    <p class="muted">Phone + password for Supabase Auth.</p>
+  </div>
+  <div class="card" style="max-width:520px;">
+    <form class="form" method="POST" action="/patient/signup">
+      <label>Full name
+        <input name="name" type="text" placeholder="Full name" required />
+      </label>
+      <label>Phone number
+        <input name="phone" type="text" placeholder="+213 5xx xxx xxx" required />
+      </label>
+      <label>Password
+        <input name="password" type="password" placeholder="Create a password" required />
+      </label>
+      <button class="primary" type="submit">Create account</button>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="card">
+    <h3>Pricing</h3>
+    <p class="muted">100 DA / user — Free for the first 50 users.</p>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

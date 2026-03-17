@@ -1,0 +1,26 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="section">
+  <div class="section-title">
+    <h2>Doctor profile</h2>
+    <p class="muted">Review details and pick a time slot.</p>
+  </div>
+  <div class="grid two">
+    <div class="card">
+      <h3>Dr Fatima Bensalem</h3>
+      <p class="muted">Dermatologist · Clinique El Yasmine · 12 yrs</p>
+      <p>Bio: Specializes in chronic dermatitis, acne, and cosmetic dermatology.</p>
+    </div>
+    <div class="card">
+      <h3>Available times</h3>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(120px,1fr));">
+        <button class="ghost">Mon 10:00</button>
+        <button class="ghost">Mon 14:30</button>
+        <button class="ghost">Tue 09:00</button>
+        <button class="ghost">Wed 16:00</button>
+      </div>
+      <a class="primary" style="margin-top:10px; display:inline-block;" href="/patient/search/doctor/book">Continue</a>
+      <a class="ghost" style="margin-top:6px; display:inline-block;" href="/patient/search">Back to search</a>
+    </div>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

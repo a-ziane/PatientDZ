@@ -1,0 +1,20 @@
+<%- include('../../partials/layout-start', { title, nav }) %>
+<section class="section">
+  <div class="section-title">
+    <h2>Profile</h2>
+    <p class="muted">Patient ID and personal info.</p>
+  </div>
+  <div class="card" style="max-width:520px;">
+    <form class="form">
+      <label>Patient ID<input type="text" value="PAT-12345" readonly /></label>
+      <label>Name<input type="text" value="Your name" /></label>
+      <label>Phone<input type="text" value="+213" /></label>
+      <label>Location<input type="text" placeholder="City" /></label>
+      <button class="primary" type="submit">Save changes</button>
+    </form>
+    <form method="POST" action="/auth/logout" style="margin-top:12px;">
+      <button class="ghost" type="submit">Log out</button>
+    </form>
+  </div>
+</section>
+<%- include('../../partials/layout-end') %>

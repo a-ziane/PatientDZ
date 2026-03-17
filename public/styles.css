@@ -24,6 +24,7 @@ main { padding: 80px 7vw 60px; }
 .grid.two { grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
 .form { display: grid; gap: 12px; }
 input, select { padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); }
+textarea { padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); font-family: inherit; }
 .footer { border-top: 1px solid var(--border); padding: 24px 7vw; color: var(--muted); display: flex; justify-content: space-between; }
 .muted { color: var(--muted); }
 .pill { background: rgba(37,99,235,0.1); color: var(--blue); padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: 0.85rem; }

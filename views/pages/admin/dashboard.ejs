@@ -1,11 +1,22 @@
 <%- include('../../partials/layout-start', { title, nav }) %>
 <section class="section">
   <div class="section-title">
-    <h2>Admin Panel</h2>
-    <p class="muted">Manage users and doctor verification.</p>
+    <h2>Admin dashboard</h2>
+    <p class="muted">Monitor patients, doctors, appointments, and approvals.</p>
   </div>
-  <div class="card">
-    <p class="muted">Build verification tools here.</p>
+  <div class="grid two">
+    <div class="card">
+      <h3>Metrics</h3>
+      <ul style="color:var(--muted); display:grid; gap:6px;">
+        <li>Patients: —</li>
+        <li>Doctors: —</li>
+        <li>Appointments: —</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pending doctors</h3>
+      <p class="muted">Approve or reject verification requests.</p>
+    </div>
   </div>
 </section>
 <%- include('../../partials/layout-end') %>
