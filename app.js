@@ -90,7 +90,9 @@ function setSession(req, payload) {
   req.session.auth = { user: payload.userId, role: payload.role, verified: payload.verified };
 }
 
-app.get(\"/\", (req, res) => res.redirect(\"/patient\"));\n+\n+// ---- Patient marketing ----
+app.get("/", (req, res) => res.redirect("/patient"));
+
+// ---- Patient marketing ----
 app.get("/patient", (req, res) => {
   render(res, "pages/patient/landing", { nav: NAVS.patientMarketing, title: "PatientDZ · Patients", pricing: "100 DA (free for first 50 users)" });
 });
